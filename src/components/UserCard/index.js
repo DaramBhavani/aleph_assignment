@@ -1,12 +1,37 @@
 import React from "react";
 import { IconButton } from "../index";
+import Styled from "styled-components";
 
-const UserCard = () => {
+const StyledUserCard = Styled.div`
+display:flex;
+flex-direction:column;
+justify-content:center;
+border:1px solid black;
+box-shadow:0.5px 1px 4px rgba(0, 0, 0, 0.4);
+border-radius:.5rem;
+max-width:320px;
+flex-basis:100%;
+margin:1rem;
+
+&:hover{
+  transform:translateY(-0.5rem) scale(1);
+}
+`;
+
+const StyledContent = Styled.div`
+padding:1.5rem;
+`;
+const UserCard = ({ name, email, phone, company }) => {
   return (
-    <div>
-      <p>UserCard Component</p>
-      <IconButton />
-    </div>
+    <StyledUserCard>
+      <StyledContent>
+        <p>Name: {name}</p>
+        <p>Email: {email}</p>
+        <p>Mobile No: {phone}</p>
+        <p>Company Name: {company.name}</p>
+      </StyledContent>
+      <IconButton iconValue="&#9990;" />
+    </StyledUserCard>
   );
 };
 
