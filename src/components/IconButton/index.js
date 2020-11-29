@@ -18,11 +18,11 @@ span{
 }
 `;
 
-const IconButton = () => {
+const IconButton = (props) => {
   return (
     <div>
       <StyleButton>
-        <span>&#9990;</span>
+        <span>{props.iconValue}</span>
         <span>Contact Now</span>
       </StyleButton>
     </div>
