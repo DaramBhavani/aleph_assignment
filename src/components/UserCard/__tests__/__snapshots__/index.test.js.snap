@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserCard renders correctly 1`] = `
+<div
+  className="sc-dlfnbm eGOGNR"
+>
+  <div
+    className="sc-hKgILt erglPN"
+  >
+    <p>
+      Name: 
+      <span>
+        Leanne Graham
+      </span>
+    </p>
+    <p>
+      Email: 
+      <span>
+        Sincere@april.biz
+      </span>
+    </p>
+    <p>
+      Mobile No: 
+      <span>
+        98765555
+      </span>
+    </p>
+    <p>
+      Company Name: 
+      <span>
+        Romaguera-Crona
+         
+      </span>
+    </p>
+  </div>
+  <div>
+    <button
+      className="sc-bdfBwQ edPwTU"
+      data-testid="icon-button"
+    >
+      <span>
+        ✆
+      </span>
+      <span>
+        Contact Now
+      </span>
+    </button>
+  </div>
+</div>
+`;
