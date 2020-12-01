@@ -25,12 +25,20 @@ const UserCard = ({ name, email, phone, company }) => {
   return (
     <StyledUserCard>
       <StyledContent>
-        <p>Name: {name}</p>
-        <p>Email: {email}</p>
-        <p>Mobile No: {phone}</p>
-        <p>Company Name: {company.name}</p>
+        <p>
+          Name: <span>{name}</span>
+        </p>
+        <p>
+          Email: <span>{email}</span>
+        </p>
+        <p>
+          Mobile No: <span>{phone}</span>
+        </p>
+        <p>
+          Company Name: <span>{company.name} </span>
+        </p>
       </StyledContent>
-      <IconButton iconValue="&#9990;" />
+      <IconButton iconValue="&#9990;" iconText="Contact Now" />
     </StyledUserCard>
   );
 };
