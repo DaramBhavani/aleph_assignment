@@ -7,6 +7,7 @@ const StyleUserContainer = Styled.div`
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
+background-color:#f7f7f7;
 *:focus{
   outline:none;
 }
@@ -47,7 +48,11 @@ const UserContainer = () => {
 
   return (
     <div>
-      <Search onLoadUserData={searchHandler} text={searchText.name} />
+      <Search
+        onLoadUserData={searchHandler}
+        value={searchText.name}
+        placeholder="enter your name/email"
+      />
       <StyleUserContainer>
         {userDetails.map((user) => {
           //console.log(user);
