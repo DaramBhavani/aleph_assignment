@@ -22,11 +22,11 @@ const Search = (props) => {
     <StyleSearch>
       <input
         type="text"
-        placeholder="enter your name/email"
-        value={props.text}
+        placeholder={props.placeholder}
+        value={props.value}
         onChange={(event) => props.onLoadUserData(event.target.value)}
+        data-testid="search"
       ></input>
-      <span>&#128269;</span>
     </StyleSearch>
   );
 };
