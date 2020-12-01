@@ -21,9 +21,9 @@ span{
 const IconButton = (props) => {
   return (
     <div>
-      <StyleButton>
+      <StyleButton data-testid="icon-button">
         <span>{props.iconValue}</span>
-        <span>Contact Now</span>
+        <span>{props.iconText}</span>
       </StyleButton>
     </div>
   );
