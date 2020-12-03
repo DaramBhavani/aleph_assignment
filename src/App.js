@@ -3,7 +3,7 @@ import { UserContainer } from "./containers/index";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="main-container">
       <UserContainer />
     </div>
   );
