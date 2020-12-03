@@ -3,6 +3,7 @@
 exports[`UserCard renders correctly 1`] = `
 <div
   className="sc-dlfnbm eGOGNR"
+  data-testid="usercard"
 >
   <div
     className="sc-hKgILt erglPN"
