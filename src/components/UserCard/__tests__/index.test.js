@@ -14,7 +14,7 @@ describe("UserCard", () => {
   };
 
   it("verify the prop value for name", () => {
-    const { getByText, container } = render(<UserCard {...data} />);
+    const { container } = render(<UserCard {...data} />);
     expect(container.querySelector("span").firstChild.textContent).toBe(
       data.name
     );
