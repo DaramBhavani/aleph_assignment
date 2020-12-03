@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { UserCard, Search } from "../../components/index";
 import getUsers from "../../api/index";
 import Styled from "styled-components";
+import { debounce } from "lodash";
 
 const StyleUserContainer = Styled.div`
 display:flex;
@@ -24,26 +25,30 @@ const UserContainer = () => {
       setUserDetails(result.data);
     };
     loadUsers();
-  }, [searchText === ""]);
+  }, []);
+
+  const debouncedSave = useRef(
+    debounce((nextValue) => callgetUsers(nextValue), 500)
+  ).current;
+
+  const callgetUsers = async (value) => {
+    //console.log("inside callgetUsers");
+    const { data: results } = await getUsers();
+    const filteredItems = results.filter((result) => {
+      const name = result.name.toLowerCase().indexOf(value.toLowerCase());
+      const email = result.email.toLowerCase().indexOf(value.toLowerCase());
+      return name !== -1 || email !== -1;
+    });
+    setUserDetails(filteredItems);
+  };
 
   //console.log('userDetails:',userDetails);
 
   const searchHandler = (value) => {
-    console.log("value:", value);
-    let results = userDetails;
-    //console.log(results);
-    const filteredItems = results.filter((result) => {
-      //console.log(result);
-      const name = result.name.toLowerCase().indexOf(value.toLowerCase());
-      const email = result.email.toLowerCase().indexOf(value.toLowerCase());
-      if (name !== -1 || email !== -1) {
-        return result;
-      }
-    });
-
-    //console.log(filteredItems);
+    //console.log("value", value);
     setSearchText(value);
-    setUserDetails(filteredItems);
+    //console.log("calling debounce...");
+    debouncedSave(value);
   };
 
   return (
@@ -52,13 +57,19 @@ const UserContainer = () => {
         onLoadUserData={searchHandler}
         value={searchText.name}
         placeholder="enter your name/email"
+        data-testid="search"
       />
-      <StyleUserContainer>
-        {userDetails.map((user) => {
-          //console.log(user);
-          return <UserCard {...user} key={user.id} />;
-        })}
-      </StyleUserContainer>
+
+      {userDetails.length === 0 ? (
+        <h1 className="center">No Records Found</h1>
+      ) : (
+        <StyleUserContainer data-testid="app">
+          {userDetails.map((user) => {
+            //console.log(user);
+            return <UserCard {...user} key={user.id} />;
+          })}
+        </StyleUserContainer>
+      )}
     </div>
   );
 };
