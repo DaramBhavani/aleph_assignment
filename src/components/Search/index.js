@@ -4,6 +4,7 @@ import Styled from "styled-components";
 const StyleSearch = Styled.div`
 display:flex;
 justify-content:center;
+align-items:center;
 *:focus{
   outline:none;
 }
@@ -14,6 +15,10 @@ input{
   box-shadow:0.5px 1px 4px rgba(0, 0, 0, 0.4);
   padding:.7rem 2rem;
   margin:1rem; 
+  padding-right:3rem;
+}
+span{
+  margin-left: -3rem;
 }
 `;
 
@@ -27,6 +32,7 @@ const Search = (props) => {
         onChange={(event) => props.onLoadUserData(event.target.value)}
         data-testid="search"
       ></input>
+      <span>&#128269;</span>
     </StyleSearch>
   );
 };
