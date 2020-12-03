@@ -1,8 +1,7 @@
 import axios from "axios";
 import UserContainer from "./../index";
 import { act } from "react-dom/test-utils";
-import * as getUsersService from "./../../../api";
-import { render, debug, fireEvent, createEvent } from "@testing-library/react";
+import { render, fireEvent, createEvent } from "@testing-library/react";
 jest.mock("axios");
 
 const users = [
