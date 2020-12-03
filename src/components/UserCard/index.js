@@ -23,7 +23,7 @@ padding:1.5rem;
 `;
 const UserCard = ({ name, email, phone, company }) => {
   return (
-    <StyledUserCard>
+    <StyledUserCard data-testid="usercard">
       <StyledContent>
         <p>
           Name: <span>{name}</span>
